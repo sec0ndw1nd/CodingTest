@@ -4,7 +4,6 @@ function solution(n) {
     const resultArr = [];
     const sqrtN = Math.sqrt(n);
     const centerN = Math.floor(sqrtN);
-    const isOddLength = sqrtN !== centerN;
     
     for (let i = 1; i <= centerN; i++) {
         if (!(n % i)) resultArr.push(i);
