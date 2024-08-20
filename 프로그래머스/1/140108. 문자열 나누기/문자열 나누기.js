@@ -1,19 +1,18 @@
 function solution(s) {
-    let [result, i] = [0, 0];
-
-    while (i < s.length) {
-        let x = s[i];
-        let xCount = 0;
-        let notXCount = 0;
-
-        while (i < s.length) {
-            if (s[i] === x) xCount++;
-            else notXCount++;
-
-            i++;
-            if (xCount === notXCount) break;
+    let splitCount = 0;
+    let xIndex = 0;
+    let [xCount, notXCount] = [0, 0];
+    for (let i = 0; i < s.length; i++) {
+        if (s[xIndex] === s[i]) xCount++;
+        else notXCount++;
+ 
+        if (xCount === notXCount) {
+            xIndex = i + 1;
+            xCount = 0;
+            notXCount = 0;
+            
+            if (i+1 !== s.length) splitCount++;
         }
-        result++;
     }
-    return result;
+    return splitCount + 1;
 }
